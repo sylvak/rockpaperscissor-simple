@@ -1,0 +1,76 @@
+<html>
+
+<head>
+    <title>Rock Paper Scissors</title>
+</head>
+
+<body>
+    <script>
+
+        function computerPlay() {
+            const choices = ["rock", "paper", "scissors"];
+            const randomNumber = Math.floor(Math.random() * 3);
+            return choices[randomNumber];
+        }
+        let scoreP = 0;
+        let scoreC = 0;
+        function playRound(playerChoice, computerSelection) {
+
+            computerSelection = computerSelection.toLowerCase();
+            playerChoice = playerChoice.toLowerCase();
+
+            if (playerChoice === "rock" && computerSelection === "scissors") {
+                outcome = "You win, rock beats scissors!"
+                scoreP++;
+            }
+            else if (playerChoice === "scissors" && computerSelection === "paper") {
+                outcome = "You win, scissors beats paper";
+                scoreP++;
+            }
+            else if (playerChoice === "paper" && computerSelection === "rock") {
+                outcome = "You win, paper beats rock";
+                scoreP++;
+            }
+            else if (playerChoice === "rock" && computerSelection === "paper") {
+                outcome = "You lost, rock loses to paper";
+                scoreC++;
+            }
+            else if (playerChoice === "scissors" && computerSelection === "rock") {
+                outcome = "You lost, scissors loses to rock";
+                scoreC++;
+            }
+            else if (playerChoice === "paper" && computerSelection === "scissors") {
+                outcome = "You lost, paper loses to scissors";
+                scoreC++;
+            }
+            else {
+                outcome = "It's a tie";
+            }
+
+            return outcome;
+        }
+
+        function game() {
+console.log(scoreP);
+            console.log(playRound(prompt("Rock, paper or scissors?"), computerPlay()));
+            console.log(playRound(prompt("Rock, paper or scissors?"), computerPlay()));
+            console.log(playRound(prompt("Rock, paper or scissors?"), computerPlay()));
+            console.log(playRound(prompt("Rock, paper or scissors?"), computerPlay()));
+            console.log(playRound(prompt("Rock, paper or scissors?"), computerPlay()));
+
+            if (scoreP > scoreC) {
+                console.log("Congrats, You're a winner!");
+            }
+            else if (scoreP < scoreC) {
+                console.log("Better luck next time, You lost!");
+            }
+            else {
+                console.log("It's a tie!")
+            }
+        }
+            game();
+
+    </script>
+</body>
+
+</html>
